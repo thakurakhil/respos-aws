@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      function updateStats(memuse) {
+        console.log(memuse);
+        }
+      
+ //var W3CWebSocket = require('websocket').w3cwebsocket;
+ var W3CWebSocket = window.WebSocket;
+var client = new W3CWebSocket('ws://ec2-52-10-172-112.us-west-2.compute.amazonaws.com:80', 'index');
+ 
+client.onerror = function() {
+    console.log('Connection Error');
+};
+ 
+client.onopen = function() {
+    console.log('WebSocket Client Connected');
+    
+    function sendNumber() {
+        if (client.readyState === client.OPEN) {
+            var number = Math.round(Math.random() * 0xFFFFFF);
+   //        client.send(number.toString());
+            setTimeout(sendNumber, 1000);
+        }
+    }
+    sendNumber();
+    $("#send_client").click(function(){
+           var datames = $("#message_client").val();
+           client.send(datames);
+           console.log(datames);
+        });
+};
+ 
+client.onclose = function() {
+    console.log('echo-protocol Client Closed');
+};
+ 
+client.onmessage = function(e) {
+    if (typeof e.data === 'string') {
+        $( "#message_server" ).html(e.data);
+    }
+};
+    </script>
+  </head>
+  <body>
+     Recieved from server !
+     <p id="message_server"> </p>
+     Send to server ! </br></br>
+     <input type="text" id="message_client"> 
+     <button type="text" id="send_client" >Send</button>
+  </body>
+</html>

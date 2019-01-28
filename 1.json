@@ -1,0 +1,59 @@
+[
+    {  
+          "restaurant_id" : "1",
+          "menu_id" : "1",
+          "menu" : {
+              
+                "category1" : {
+                        "snack1" : {
+                          "sizes" : true, 
+                          "price":[10,20,30], 
+                          "size":[1,2,3],
+                          "description":"item1"
+                          
+                        },
+                        "snack2" : {
+                          "sizes" : true, 
+                          "price":[10,20], 
+                          "size":[2,3], 
+                          "description":"item2"
+                          
+                        },
+                        "snack3" : {
+                          "sizes" : false, 
+                          "price":[10], 
+                          "size":[], 
+                          "description":"item3"
+                          
+                        }
+                        
+                      },
+                "category2" : {
+                        "snack12" : {
+                          "sizes" : true, 
+                          "price":[110,20,30], 
+                          "size":[11,2,3],
+                          "description":"item1"
+                          
+                        },
+                        "snack22" : {
+                          "sizes" : true, 
+                          "price":[110,20], 
+                          "size":[12,3], 
+                          "description":"item2"
+                          
+                        },
+                        "snack32" : {
+                          "sizes" : false, 
+                          "price":[110], 
+                          "size":[], 
+                          "description":"item3"
+                          
+                        }
+                        
+                      }
+              },
+        "latitude" : "17.441486",
+        "longitude": "78.358433"
+    }       
+]
